@@ -1,9 +1,7 @@
 package game;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
+import java.sql.PseudoColumnUsage;
+import java.util.*;
 
 public class Answer {
     /**
@@ -25,11 +23,15 @@ public class Answer {
     }
 
     public List<Integer> getAnswer() {
-        return answer.stream()
+        List<Integer> list = new ArrayList<>(answer.stream()
                 .mapToInt(Integer::intValue)
                 .boxed()
-                .toList();
+                .toList());
+
+        Collections.shuffle(list);
+        return list;
 
 
     }
+
 }
