@@ -1,17 +1,33 @@
-package hello;
+import game.Game;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+    static List<Integer> history = new ArrayList<>();
+
+
+    public static void main(String[] args) {
+        //게임 실행
+        //게임 반복 실행
+
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("숫자 야구 게임!");
+            System.out.println("게임 시작");
+            System.out.println("----------");
+
+            Game game = new Game();
+            game.start();
+            history.add(game.getTryCnt());
+
+
+
+            System.out.println("----------");
+            System.out.println("계속 하시겠습니까?(Y/N중 입력)");
+
+        } while (sc.nextLine().equals("Y"));
     }
 }
