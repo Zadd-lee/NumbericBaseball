@@ -15,15 +15,11 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         do {
-            System.out.println("숫자 야구 게임!");
-            System.out.println("게임 시작");
             System.out.println("----------");
 
-            Game game = new Game();
+            Game game = new Game(3);
             game.start();
             history.add(game.getTryCnt());
-
-
 
             System.out.println("----------");
             System.out.println("계속 하시겠습니까?(Y/N중 입력)");
