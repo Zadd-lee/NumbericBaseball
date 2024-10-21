@@ -2,6 +2,7 @@ package game;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 
 public class Answer {
@@ -23,8 +24,11 @@ public class Answer {
         }
     }
 
-    public int[] getAnswer() {
-        return answer.stream().mapToInt(Integer::intValue).toArray();
+    public List<Integer> getAnswer() {
+        return answer.stream()
+                .mapToInt(Integer::intValue)
+                .boxed()
+                .toList();
 
 
     }
