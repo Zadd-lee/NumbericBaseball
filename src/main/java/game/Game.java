@@ -39,7 +39,6 @@ public class Game {
             System.out.println("---------------------");
 
         }while (scoreBoard.get(STRIKE)!=digits);
-        System.out.println();
         System.out.println("축하합니다! 성공했습니다");
         System.out.println("정답은 "+answer.toString()+" 입니다!");
         System.out.println("이번 게임의 시도 횟수는 "+tryCnt+ "입니다.");
