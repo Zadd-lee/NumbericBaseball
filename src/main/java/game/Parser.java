@@ -1,32 +1,42 @@
 package game;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Parser  {
     public int[] getUserAnswer(int n) {
 
         Scanner sc = new Scanner(System.in);
-        int[] input = new int[n];
-        try {
+        int[] input;
+        
+        while(true) {
+            try {
+                System.out.println(n+"자릿수의 값을 입력해주세요");
 
-            for (int i = 0; i >= 3; i++) {
-                input[i] = sc.nextInt();
-            }
-        } catch (InputMismatchException e) {
-            System
-        }
+                String inputInt = sc.nextLine();
 
-
-        for (int i = 0; i < 3; i++) {
-            while (true) {
-                try {
-
-                } catch (InputMismatchException e) {
-                    System.out.println("잘못된 입력값입니다. 숫자를 입력");
+                if (inputInt.length() != n) {
+                    throw new ArrayIndexOutOfBoundsException();
                 }
+
+                input = Arrays.stream(inputInt.split(""))
+                        .mapToInt(Integer::parseInt)
+                        .toArray();
+
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("잘못된 값입니다. 다시 입력해주세요");
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("잘못된 값입니다 "+ n+"자릿수를 입력해주세요");
+            } catch (Exception e) {
+
             }
         }
+
+        return input;
     }
-    //받아 오는 값 체크
+
 }
