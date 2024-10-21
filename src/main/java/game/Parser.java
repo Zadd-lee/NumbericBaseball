@@ -15,25 +15,28 @@ public class Parser  {
 
                 String inputInt = sc.nextLine();
 
-                if (inputInt.length() != n) {
-                    throw new ArrayIndexOutOfBoundsException();
-                }
-
-                //todo 문자 작성 안됨
-                //todo 중복된 값 가져올 수 없음
-                //todo 이 부분 좀 깔끔하게 하는 방법 찾기
                 input = Arrays.stream(inputInt.split(""))
                         .mapToInt(Integer::parseInt)
                         .boxed()
                         .collect(Collectors.toList());
 
+                if (inputInt.length() != n) {
+                    throw new ArrayIndexOutOfBoundsException();
+                }
+
+
+                if (input.size() != input.stream().distinct().collect(Collectors.toList()).size()) {
+                    throw new Exception("중복된 숫자는 허용되지 않습니다.");
+                }
+
+
                 break;
-            } catch (InputMismatchException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("잘못된 값입니다. 숫자값을 입력해주세요");
             } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println("잘못된 값입니다 "+ n+"자릿수를 입력해주세요");
             } catch (Exception e) {
-
+                System.out.println(e.getMessage());
             }
         }
 
