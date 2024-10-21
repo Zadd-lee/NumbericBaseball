@@ -36,6 +36,7 @@ public class Main {
             } else if (command.equals("2")) {
                 printHistory();
             } else if (command.equals("3")) {
+                history.clear();
                 System.out.println("< 숫자 야구 게임을 종료합니다 >");
             }
 

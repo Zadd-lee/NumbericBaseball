@@ -1,6 +1,5 @@
 package game;
 
-import java.sql.PseudoColumnUsage;
 import java.util.*;
 
 public class Answer {
